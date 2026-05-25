@@ -24,14 +24,14 @@ jobs:
       run: dotnet restore
       working-directory: HelloWorld
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --no-restore -c Release
       working-directory: HelloWorld
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build -c Release --verbosity normal
       working-directory: HelloWorld
 
     - name: Publish
-      run: dotnet publish --no-build -o publish
+      run: dotnet publish --no-build -c Release -o publish
       working-directory: HelloWorld
     - name: Upload build artifact
       uses: actions/upload-artifact@v4
